@@ -1,10 +1,8 @@
-
-
 class Weight():
 
 
     MEASUREMENTS = {
-        'lb': 'pounds'
+        'lb': 'pounds(lb)'
     }
 
     def __init__(self, value, type):
@@ -12,10 +10,14 @@ class Weight():
         self.type = type
 
     def convert(self, measurement):
-        #return Weight(converted_value, measurement)
-        pass
+        conversion_table = {
+            'lb': {
+                'kg': self.value * 0.45359237,
+                'lb': self.value
+            }
+        }
+
+        return Weight(conversion_table[self.type][measurement], measurement)
 
     def measurement(self):
         return Weight.MEASUREMENTS[self.type]
-
-
