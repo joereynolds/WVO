@@ -21,6 +21,10 @@ class TestWeight(unittest.TestCase):
         weight = w.Weight(5, 'lb')
         self.assertEqual(weight.convert('lb').value, 5)
 
+    def test_weight_conversion_thats_circular(self):
+        weight = w.Weight(5, 'lb')
+        self.assertEqual(weight.convert('kg').convert('lb').value, 5)
+
     def test_weight_conversion_thats_nested(self):
         pass
 

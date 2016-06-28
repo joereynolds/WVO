@@ -14,6 +14,10 @@ class Weight():
             'lb': {
                 'kg': self.value * 0.45359237,
                 'lb': self.value
+            },
+            'kg': {
+                'lb': self.value / 0.45359237,
+                'kg': self.value
             }
         }
 
